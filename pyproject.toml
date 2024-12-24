@@ -26,6 +26,13 @@ classifiers = [
 ]
 dependencies = []
 
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.3.4",
+  "pydantic==2.10.4",
+  "pytest-asyncio==0.25.0"
+]
+
 [project.urls]
 Documentation = "https://github.com/laura-hai/weather-aggregator#readme"
 Issues = "https://github.com/laura-hai/weather-aggregator/issues"
@@ -59,3 +66,10 @@ exclude_lines = [
   "if __name__ == .__main__.:",
   "if TYPE_CHECKING:",
 ]
+
+[tool.ruff]
+select = ["F", "E", "W", "I", "N", "UP", "ANN", "B"]
+
+[tool.pytest.ini_options]
+addopts = "--cov=weather_aggregator --cov-report=xml --cov-report=html"
+testpaths = ["tests"]
